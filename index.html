@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>Romal Ramadhan</title>
+  <meta name="description" content="PhD Candidate, UT Austin & Researcher at Los Alamos National Laboratory. CO₂ storage, geomechanics, and subsurface energy systems." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #1a2a1a;
+      --ink-2:      #2d4a2d;
+      --accent:     #3d6b3d;
+      --accent-mid: #4a7c59;
+      --accent-lt:  #a8c5a0;
+      --cream:      #f4f0e8;
+      --cream-dark: #ede8dc;
+      --white:      #ffffff;
+      --border:     #d6d0c2;
+      --border-lt:  #e8e3d8;
+      --muted:      #6b7a5e;
+      --light:      #8f9e82;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Source Sans 3', 'Helvetica Neue', sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── NAV ─────────────────────────────────────────────────────── */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 52px;
+      background: rgba(244, 240, 232, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    #nav .site-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+    }
+
+    #nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    #nav ul a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--ink-2);
+      transition: color 0.15s;
+    }
+
+    #nav ul a:hover { color: var(--accent); text-decoration: none; }
+
+    /* ── HERO ─────────────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 580px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg,
+          rgba(26, 42, 26, 0.80) 0%,
+          rgba(45, 74, 45, 0.68) 45%,
+          rgba(26, 42, 26, 0.88) 100%),
+        url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1800&q=80&auto=format') center/cover no-repeat;
+    }
+
+    /* grain overlay for warmth */
+    #hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(164, 200, 144, 0.025) 3px,
+        rgba(164, 200, 144, 0.025) 4px
+      );
+      pointer-events: none;
+    }
+
+    #hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: var(--white);
+      padding: 0 1.5rem;
+    }
+
+    #hero-content h1 {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+
+    #hero-content .subtitle {
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 0.4rem;
+    }
+
+    #hero-content .affil {
+      font-size: 0.82rem;
+      color: var(--accent-lt);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 2.4rem;
+    }
+
+    .hero-nav-links {
+      display: flex;
+      gap: 1.4rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-nav-links a {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      border-bottom: 1px solid rgba(168, 197, 160, 0.4);
+      padding-bottom: 2px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .hero-nav-links a:hover { color: var(--white); border-color: var(--accent-lt); text-decoration: none; }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(168, 197, 160, 0.5);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      animation: bounce 2.6s ease-in-out infinite;
+    }
+
+    .hero-scroll svg { width: 18px; height: 18px; }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) { .hero-scroll { animation: none; } }
+
+    /* ── SHARED SECTION ───────────────────────────────────────────── */
+    .section {
+      padding: 5rem clamp(1.5rem, 8vw, 8rem);
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .section-alt {
+      background: var(--cream);
+      max-width: 100%;
+      padding: 0;
+    }
+
+    .section h2 {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1.85rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 1.6rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    /* ── ABOUT ────────────────────────────────────────────────────── */
+    #about .about-grid {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .avatar-placeholder {
+      width: 200px;
+      height: 200px;
+      border-radius: 4px;
+      background: linear-gradient(160deg, var(--accent) 0%, var(--accent-mid) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.85);
+      font-family: 'Source Serif 4', serif;
+      font-size: 3rem;
+      font-weight: 400;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      color: var(--ink-2);
+      margin-bottom: 1rem;
+      line-height: 1.78;
+    }
+
+    .about-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 1.5rem;
+    }
+
+    .about-links a {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent-lt);
+      padding: 0.3rem 0.8rem;
+      border-radius: 2px;
+      transition: all 0.15s;
+    }
+
+    .about-links a:hover { background: var(--accent); color: var(--white); border-color: var(--accent); text-decoration: none; }
+
+    /* ── RESEARCH ─────────────────────────────────────────────────── */
+    #research .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+      background: var(--white);
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 4px 24px rgba(26, 42, 26, 0.10);
+      border-color: var(--accent-mid);
+    }
+
+    .card-img-placeholder {
+      width: 100%;
+      height: 130px;
+      background: linear-gradient(135deg, var(--ink) 0%, var(--accent) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-img-placeholder svg {
+      width: 36px; height: 36px;
+      opacity: 0.35;
+      color: var(--cream);
+    }
+
+    .card-body { padding: 1.25rem; }
+
+    .card-body h3 {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      line-height: 1.35;
+    }
+
+    .card-body p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── PUBLICATIONS ──────────────────────────────────────────────── */
+    #publications .pub-list { list-style: none; }
+
+    .pub-item {
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--border-lt);
+      display: grid;
+      grid-template-columns: 3.5rem 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .pub-year {
+      font-size: 0.77rem;
+      font-weight: 600;
+      color: var(--light);
+      padding-top: 0.15rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .pub-title {
+      font-size: 0.97rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+      line-height: 1.4;
+    }
+
+    .pub-authors {
+      font-size: 0.83rem;
+      color: var(--muted);
+      margin-bottom: 0.15rem;
+    }
+
+    .pub-journal {
+      font-size: 0.83rem;
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .pub-badge {
+      display: inline-block;
+      background: #f0f4ec;
+      color: var(--accent);
+      font-size: 0.63rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.1rem 0.45rem;
+      border-radius: 2px;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+      border: 1px solid var(--accent-lt);
+    }
+
+    .scholar-link {
+      display: inline-block;
+      margin-top: 2rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    /* ── NEWS ──────────────────────────────────────────────────────── */
+    #news .year-block { margin-bottom: 2.2rem; }
+
+    #news .year-label {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .news-item {
+      display: grid;
+      grid-template-columns: 4rem 1fr;
+      gap: 1rem;
+      padding: 0.55rem 0;
+      align-items: start;
+    }
+
+    .news-date {
+      font-size: 0.77rem;
+      color: var(--light);
+      font-variant-numeric: tabular-nums;
+      padding-top: 0.1rem;
+      white-space: nowrap;
+    }
+
+    .news-body {
+      font-size: 0.92rem;
+      color: var(--ink-2);
+      line-height: 1.62;
+    }
+
+    /* ── CONTACT ───────────────────────────────────────────────────── */
+    #contact p {
+      font-size: 1rem;
+      color: var(--ink-2);
+      max-width: 580px;
+      margin-bottom: 1.4rem;
+      line-height: 1.78;
+    }
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 0.5rem;
+    }
+
+    .social-row a {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--ink-2);
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.9rem;
+      border-radius: 2px;
+      transition: all 0.15s;
+    }
+
+    .social-row a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    .social-row svg { width: 15px; height: 15px; }
+
+    /* ── FOOTER ────────────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 2.5rem;
+      border-top: 1px solid var(--border-lt);
+      background: var(--cream);
+      font-size: 0.78rem;
+      color: var(--light);
+    }
+
+    /* ── RESPONSIVE ────────────────────────────────────────────────── */
+    @media (max-width: 680px) {
+      #nav { padding: 0 1.2rem; }
+      #nav ul { display: none; }
+      #about .about-grid { grid-template-columns: 1fr; }
+      .avatar-placeholder { width: 110px; height: 110px; font-size: 2rem; }
+      .section { padding: 3.5rem 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <span class="site-name">Romal Ramadhan</span>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#news">News</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div id="hero-bg"></div>
+  <div id="hero-content">
+    <h1>Romal Ramadhan</h1>
+    <p class="subtitle">PhD Candidate in Geosciences &nbsp;·&nbsp; Subsurface Modeller</p>
+    <p class="affil">UT Austin — Bureau of Economic Geology &nbsp;·&nbsp; LANL Intern</p>
+    <div class="hero-nav-links">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <h2>About</h2>
+  <div class="about-grid">
+    <div class="avatar-placeholder">RR</div>
+    <div class="about-text">
+      <p>
+        I am a PhD candidate at the <a href="https://www.jsg.utexas.edu/">Jackson School of Geosciences</a>, University of Texas at Austin, working within the <a href="https://www.beg.utexas.edu/gccc">Gulf Coast Carbon Center (GCCC)</a> at the Bureau of Economic Geology, co-advised by Dr. Seyyed A. Hosseini and Dr. Larry W. Lake. I am currently a research intern at <strong>Los Alamos National Laboratory (LANL)</strong>, where my work focuses on techno-economic analysis of critical mineral recovery pathways.
+      </p>
+      <p>
+        My research focuses on coupled subsurface flow and geomechanics for carbon capture and storage (CCS) — developing simulation workflows that are accurate enough for regulatory defensibility and fast enough for uncertainty campaigns. Current work spans boundary condition methods for truncated CCS domains, the Noordbergum effect as a monitoring diagnostic, and fault integrity under evolving pressure–stress fields.
+      </p>
+      <p>
+        Before UT Austin, I was a reservoir engineer at Chiang Mai University's CCS Research Centre in Thailand. I hold an M.Sc. in Petroleum Engineering from Chulalongkorn University (Thailand) and a B.Sc. from Universitas Islam Riau (Indonesia).
+      </p>
+      <div class="about-links">
+        <a href="mailto:romalramadhan@utexas.edu">Email</a>
+        <a href="https://github.com/romalfoy">GitHub</a>
+        <a href="https://scholar.google.com">Google Scholar</a>
+        <a href="https://www.researchgate.net">ResearchGate</a>
+        <a href="#">CV</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<div class="section-alt">
+<section id="research" class="section">
+  <h2>Research</h2>
+  <div class="project-grid">
+
+    <div class="project-card">
+      <div class="card-img-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="4" rx="1"/><rect x="3" y="10" width="18" height="4" rx="1"/><rect x="3" y="17" width="18" height="4" rx="1"/></svg>
+      </div>
+      <div class="card-body">
+        <h3>Boundary Conditions for Truncated CCS Domains</h3>
+        <p>Storage-conserving boundary-modifier workflows for reduced-domain reservoir models — improving pressure-footprint and AoR fidelity while enabling high-throughput uncertainty campaigns.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="card-img-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="11"/></svg>
+      </div>
+      <div class="card-body">
+        <h3>Noordbergum Effect as a CCS Monitoring Diagnostic</h3>
+        <p>Layered poroelastic framework to separate mechanical-coupling signatures from leakage-like pressure transients — sharpening sensor placement and operational decision triggers.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="card-img-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <div class="card-body">
+        <h3>Fault Integrity Under Coupled Pressure–Stress Evolution</h3>
+        <p>Fault-integrity screening coupling flow outputs with slip tendency and stress rotation across injection controls and fault-property uncertainty to define safe operating envelopes.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="card-img-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+      </div>
+      <div class="card-body">
+        <h3>Techno-Economic Analysis of Critical Mineral Recovery — LANL</h3>
+        <p>Techno-economic assessment of critical mineral extraction and processing pathways, evaluating cost structures, supply chain feasibility, and policy implications to support domestic energy transition goals. Conducted as part of an internship at Los Alamos National Laboratory.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+</div>
+
+<!-- PUBLICATIONS -->
+<section id="publications" class="section">
+  <h2>Publications</h2>
+  <ul class="pub-list">
+
+    <li class="pub-item">
+      <span class="pub-year">2026</span>
+      <div>
+        <div class="pub-title">Gradual modifiers for storage-conserving truncated porous media models: accuracy and efficiency in CCS flow simulation</div>
+        <div class="pub-authors">Ramadhan, R. &amp; Hosseini, S. A.</div>
+        <div class="pub-journal">Advances in Water Resources</div>
+      </div>
+    </li>
+
+    <li class="pub-item">
+      <span class="pub-year">u/r</span>
+      <div>
+        <div class="pub-title">Underused Geothermal Potential in Southeast Asia's Net-zero Transition <span class="pub-badge">Under Review</span></div>
+        <div class="pub-authors">Ramadhan, R. &amp; Mon, M. T.</div>
+        <div class="pub-journal">Geoscience Frontiers</div>
+      </div>
+    </li>
+
+    <li class="pub-item">
+      <span class="pub-year">2025</span>
+      <div>
+        <div class="pub-title">Reservoir heterogeneity and its role in long-term CO₂ storage performance: A case study of Air Benakat formation</div>
+        <div class="pub-authors">Ramadhan, R., Abdurrahman, M., Arsad, A., et al.</div>
+        <div class="pub-journal">Deep Resources Engineering</div>
+      </div>
+    </li>
+
+    <li class="pub-item">
+      <span class="pub-year">2025</span>
+      <div>
+        <div class="pub-title">CO₂ storage infrastructure and cost estimation for BECCS in northern Thailand</div>
+        <div class="pub-authors">Tangparitkul, S., Akamine, T., Ramadhan, R., et al.</div>
+        <div class="pub-journal">Carbon Capture Science &amp; Technology</div>
+      </div>
+    </li>
+
+    <li class="pub-item">
+      <span class="pub-year">2024</span>
+      <div>
+        <div class="pub-title">CO₂ trapping dynamics in tight sandstone: Insights into trapping mechanisms in Mae Moh's reservoir</div>
+        <div class="pub-authors">Ramadhan, R., Tapanya, C., Thakheru, A., Leelasukseree, C., &amp; Tangparitkul, S.</div>
+        <div class="pub-journal">Journal of Environmental Management</div>
+      </div>
+    </li>
+
+    <li class="pub-item">
+      <span class="pub-year">2024</span>
+      <div>
+        <div class="pub-title">Carbon capture, utilization, and storage in Indonesia: Storage capacity, status, economics, and policy</div>
+        <div class="pub-authors">Ramadhan, R., Mon, M. T., Tangparitkul, S., et al.</div>
+        <div class="pub-journal">Energy Geosciences</div>
+      </div>
+    </li>
+
+    <li class="pub-item">
+      <span class="pub-year">2024</span>
+      <div>
+        <div class="pub-title">Geomechanics contribution to CO₂ storage containment and trapping in tight sandstone complexes: Mae Moh Basin</div>
+        <div class="pub-authors">Ramadhan, R., Promneewat, K., Thanasaksukthawee, V., et al.</div>
+        <div class="pub-journal">Science of the Total Environment</div>
+      </div>
+    </li>
+
+    <li class="pub-item">
+      <span class="pub-year">2023</span>
+      <div>
+        <div class="pub-title">Numerical simulation of potential site for CO₂ sequestration in a depleted oil reservoir in northern Thailand</div>
+        <div class="pub-authors">Ramadhan, R., Abdurrahman, M., Bissen, R., Maneeintr, K.</div>
+        <div class="pub-journal">Energy Reports</div>
+      </div>
+    </li>
+
+  </ul>
+  <a class="scholar-link" href="https://scholar.google.com">Full list on Google Scholar →</a>
+</section>
+
+<!-- NEWS -->
+<div class="section-alt">
+<section id="news" class="section">
+  <h2>News &amp; Updates</h2>
+
+  <div class="year-block">
+    <div class="year-label">2026</div>
+    <div class="news-item">
+      <span class="news-date">Jun</span>
+      <span class="news-body">Poster at Jackson School Annual Research Symposium: "Sealing or leaking? Evaluating fault integrity under CO₂ storage operations."</span>
+    </div>
+    <div class="news-item">
+      <span class="news-date">2026</span>
+      <span class="news-body">Paper published in <em>Advances in Water Resources</em>: gradual boundary modifiers for truncated CCS reservoir models.</span>
+    </div>
+    <div class="news-item">
+      <span class="news-date">2026</span>
+      <span class="news-body">Started research internship at <a href="https://www.lanl.gov/">Los Alamos National Laboratory (LANL)</a>, working on techno-economic analysis of critical mineral recovery.</span>
+    </div>
+  </div>
+
+  <div class="year-block">
+    <div class="year-label">2025</div>
+    <div class="news-item">
+      <span class="news-date">Oct</span>
+      <span class="news-body">Oral presentation at GSA Connect, San Antonio: "Efficient Boundary Modeling for CO₂ Storage in Saline Aquifers."</span>
+    </div>
+    <div class="news-item">
+      <span class="news-date">2025</span>
+      <span class="news-body">Poster at Jackson School Annual Research Symposium: "Reduced-grid models with boundary-condition accuracy for subsurface energy and waste storage."</span>
+    </div>
+    <div class="news-item">
+      <span class="news-date">2025</span>
+      <span class="news-body">Papers published in <em>Deep Resources Engineering</em> and <em>Carbon Capture Science &amp; Technology</em>.</span>
+    </div>
+    <div class="news-item">
+      <span class="news-date">2025</span>
+      <span class="news-body">Semi-finalist, SMART-CDR Carbon Dioxide Removal Competition.</span>
+    </div>
+  </div>
+
+  <div class="year-block">
+    <div class="year-label">2024</div>
+    <div class="news-item">
+      <span class="news-date">Aug</span>
+      <span class="news-body">Started PhD at UT Austin, Jackson School of Geosciences / Bureau of Economic Geology. Co-advisors: Dr. Hosseini &amp; Dr. Lake.</span>
+    </div>
+    <div class="news-item">
+      <span class="news-date">2024</span>
+      <span class="news-body">Three papers published: <em>Journal of Environmental Management</em>, <em>Energy Geosciences</em>, <em>Science of the Total Environment</em>.</span>
+    </div>
+  </div>
+
+  <div class="year-block">
+    <div class="year-label">2023</div>
+    <div class="news-item">
+      <span class="news-date">Jan</span>
+      <span class="news-body">Joined Chiang Mai CCS Frontier Research Centre as Reservoir Engineer (Research).</span>
+    </div>
+    <div class="news-item">
+      <span class="news-date">2023</span>
+      <span class="news-body">Awarded Chevron Scholarship for Graduate Students (~USD 2,000).</span>
+    </div>
+    <div class="news-item">
+      <span class="news-date">2023</span>
+      <span class="news-body">Paper published in <em>Energy Reports</em> on CO₂ sequestration in a depleted Thai reservoir.</span>
+    </div>
+  </div>
+
+</section>
+</div>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <h2>Contact</h2>
+  <p>
+    I'm open to research collaborations, questions about CCS simulation and geomechanics, and conversations about the energy transition. Based at UT Austin and Los Alamos National Laboratory.
+  </p>
+  <p>
+    Reach me at <a href="mailto:romalramadhan@utexas.edu">romalramadhan@utexas.edu</a>.
+  </p>
+  <div class="social-row">
+    <a href="mailto:romalramadhan@utexas.edu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Email
+    </a>
+    <a href="https://github.com/romalfoy" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      GitHub
+    </a>
+    <a href="https://scholar.google.com" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 0 1 .665 6.479A11.952 11.952 0 0 1 12 20.055a11.952 11.952 0 0 1-6.824-2.998 12.078 12.078 0 0 1 .665-6.479L12 14z"/></svg>
+      Google Scholar
+    </a>
+    <a href="https://www.researchgate.net" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      ResearchGate
+    </a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Romal Ramadhan &nbsp;·&nbsp; Austin, TX &amp; Los Alamos, NM
+</footer>
+
+</body>
+</html>
