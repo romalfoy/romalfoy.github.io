@@ -1,12 +1,12 @@
 # romalfoy.github.io
 
-Personal academic website for **Romal Ramadhan** — PhD Candidate at UT Austin (Bureau of Economic Geology) & Researcher at Los Alamos National Laboratory.
+Personal academic website for **Romal Ramadhan** : PhD Candidate at UT Austin (Bureau of Economic Geology) & Researcher at Los Alamos National Laboratory.
 
 Live at: **https://romalfoy.github.io**
 
 ## Stack
 
-Pure HTML/CSS — no frameworks, no build step. Works straight out of a GitHub Pages repository.
+Pure HTML/CSS : no frameworks, no build step. Works straight out of a GitHub Pages repository.
 
 ## How to deploy
 
