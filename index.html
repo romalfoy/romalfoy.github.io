@@ -126,7 +126,7 @@
       color: rgba(255,255,255,0.85); font-family: 'Source Serif 4', serif;
       font-size: 3rem; font-weight: 400; border: 1px solid var(--border);
     }
-    /* chip links below the avatar — from Min's style */
+    /* chip links below the avatar, from Min style */
     .about-chips { display: flex; flex-direction: column; gap: 0.4rem; width: 190px; }
     .about-chips a {
       display: block; text-align: center;
@@ -249,7 +249,7 @@
   <div id="hero-content">
     <h1>Romal Ramadhan</h1>
     <p class="subtitle">PhD Candidate in Geosciences &nbsp;·&nbsp; Subsurface Modeller</p>
-    <p class="affil">UT Austin — Bureau of Economic Geology &nbsp;·&nbsp; LANL Intern</p>
+    <p class="affil">UT Austin, Bureau of Economic Geology &nbsp;·&nbsp; LANL Intern</p>
     <div class="hero-nav-links">
       <a href="#about">About</a>
       <a href="#research">Research</a>
@@ -270,13 +270,15 @@
   <div class="about-grid">
     <!-- avatar + stacked chip links (Min's pattern) -->
     <div class="avatar-box">
-      <div class="avatar-placeholder">RR</div>
+      <div class="avatar-placeholder" style="padding:0;overflow:hidden;">
+        <img src="photo.jpg" alt="Romal Ramadhan" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+      </div>
       <div class="about-chips">
         <a href="mailto:romalramadhan@utexas.edu">Email</a>
         <a href="https://github.com/romalfoy" target="_blank" rel="noopener">GitHub</a>
         <a href="https://scholar.google.com/citations?user=YegjddoAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
         <a href="https://www.researchgate.net/profile/Romal-Ramadhan-2" target="_blank" rel="noopener">ResearchGate</a>
-        <a href="#">CV ↓</a>
+        <a href="RR_Resume.pdf" target="_blank" rel="noopener">CV ↓</a>
       </div>
     </div>
     <div class="about-text">
@@ -284,7 +286,7 @@
         I am a PhD candidate at the <a href="https://www.jsg.utexas.edu/">Jackson School of Geosciences</a>, University of Texas at Austin, working within the <a href="https://www.beg.utexas.edu/gccc">Gulf Coast Carbon Center (GCCC)</a> at the Bureau of Economic Geology, co-advised by Dr. Seyyed A. Hosseini and Dr. Larry W. Lake. I am currently a research intern at <strong>Los Alamos National Laboratory (LANL)</strong>, where my work focuses on techno-economic analysis of critical mineral recovery pathways.
       </p>
       <p>
-        My research focuses on coupled subsurface flow and geomechanics for carbon capture and storage (CCS); developing simulation workflows that are accurate enough for regulatory defensibility and fast enough for uncertainty campaigns. Current work spans boundary condition methods for truncated CCS domains, the Noordbergum effect as a monitoring diagnostic, and fault integrity under evolving pressure–stress fields.
+        My research focuses on coupled subsurface flow and geomechanics for carbon capture and storage (CCS), developing simulation workflows that are accurate enough for regulatory defensibility and fast enough for uncertainty campaigns. Current work spans boundary condition methods for truncated CCS domains, the Noordbergum effect as a monitoring diagnostic, and fault integrity under evolving pressure and stress fields.
       </p>
       <p>
         Before UT Austin, I was a reservoir engineer at Chiang Mai University's CCS Research Centre in Thailand. I hold an M.Sc. in Petroleum Engineering from Chulalongkorn University (Thailand) and a B.Sc. from Universitas Islam Riau (Indonesia).
@@ -306,7 +308,7 @@
       <div class="card-body">
         <div class="card-field">Reservoir Simulation</div>
         <h3>Boundary Conditions for Truncated CCS Domains</h3>
-        <p>Storage-conserving boundary-modifier workflows for reduced-domain reservoir models; improving pressure-footprint and AoR fidelity while enabling high-throughput uncertainty campaigns.</p>
+        <p>Storage-conserving boundary-modifier workflows for reduced-domain reservoir models, improving pressure-footprint and AoR fidelity while enabling high-throughput uncertainty campaigns.</p>
       </div>
     </div>
 
@@ -317,7 +319,7 @@
       <div class="card-body">
         <div class="card-field">Geomechanics · Monitoring</div>
         <h3>Noordbergum Effect as a CCS Monitoring Diagnostic</h3>
-        <p>Layered poroelastic framework to separate mechanical-coupling signatures from leakage-like pressure transients; sharpening sensor placement and operational decision triggers.</p>
+        <p>Layered poroelastic framework to separate mechanical-coupling signatures from leakage-like pressure transients, sharpening sensor placement and operational decision triggers.</p>
       </div>
     </div>
 
@@ -327,7 +329,7 @@
       </div>
       <div class="card-body">
         <div class="card-field">Fault Integrity · Risk</div>
-        <h3>Fault Integrity Under Coupled Pressure–Stress Evolution</h3>
+        <h3>Fault Integrity Under Coupled Pressure and Stress Evolution</h3>
         <p>Fault-integrity screening coupling flow outputs with slip tendency and stress rotation across injection controls and fault-property uncertainty to define safe operating envelopes.</p>
       </div>
     </div>
