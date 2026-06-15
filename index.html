@@ -39,430 +39,194 @@
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* ── NAV ─────────────────────────────────────────────────────── */
+    /* ── NAV ── */
     #nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 200;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 2.5rem;
-      height: 52px;
-      background: rgba(244, 240, 232, 0.96);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; height: 52px;
+      background: rgba(244,240,232,0.96);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border);
     }
-
-    #nav .site-name {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--ink);
-      letter-spacing: 0.01em;
-    }
-
-    #nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-    }
-
-    #nav ul a {
-      font-size: 0.85rem;
-      font-weight: 400;
-      color: var(--ink-2);
-      transition: color 0.15s;
-    }
-
+    #nav .site-name { font-size: 0.9rem; font-weight: 600; color: var(--ink); letter-spacing: 0.01em; }
+    #nav ul { list-style: none; display: flex; gap: 2rem; }
+    #nav ul a { font-size: 0.85rem; font-weight: 400; color: var(--ink-2); transition: color 0.15s; }
     #nav ul a:hover { color: var(--accent); text-decoration: none; }
 
-    /* ── HERO ─────────────────────────────────────────────────────── */
+    /* ── HERO ── */
     #hero {
-      position: relative;
-      height: 100vh;
-      min-height: 580px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position: relative; height: 100vh; min-height: 580px;
+      overflow: hidden; display: flex; align-items: center; justify-content: center;
     }
-
     #hero-bg {
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background:
-        linear-gradient(180deg,
-          rgba(26, 42, 26, 0.80) 0%,
-          rgba(45, 74, 45, 0.68) 45%,
-          rgba(26, 42, 26, 0.88) 100%),
+        linear-gradient(180deg, rgba(26,42,26,0.80) 0%, rgba(45,74,45,0.68) 45%, rgba(26,42,26,0.88) 100%),
         url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1800&q=80&auto=format') center/cover no-repeat;
     }
-
-    /* grain overlay for warmth */
     #hero-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 3px,
-        rgba(164, 200, 144, 0.025) 3px,
-        rgba(164, 200, 144, 0.025) 4px
-      );
+      content: ''; position: absolute; inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(164,200,144,0.025) 3px, rgba(164,200,144,0.025) 4px);
       pointer-events: none;
     }
-
-    #hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      color: var(--white);
-      padding: 0 1.5rem;
-    }
-
+    #hero-content { position: relative; z-index: 2; text-align: center; color: var(--white); padding: 0 1.5rem; }
     #hero-content h1 {
       font-family: 'Source Serif 4', Georgia, serif;
-      font-size: clamp(2.4rem, 6vw, 4.2rem);
-      font-weight: 400;
-      letter-spacing: -0.01em;
-      line-height: 1.1;
-      margin-bottom: 0.75rem;
+      font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 400;
+      letter-spacing: -0.01em; line-height: 1.1; margin-bottom: 0.75rem;
     }
-
     #hero-content .subtitle {
-      font-size: clamp(0.95rem, 2vw, 1.15rem);
-      font-weight: 300;
-      color: rgba(255,255,255,0.78);
-      margin-bottom: 0.4rem;
+      font-size: clamp(0.95rem, 2vw, 1.15rem); font-weight: 300;
+      color: rgba(255,255,255,0.78); margin-bottom: 0.4rem;
     }
-
     #hero-content .affil {
-      font-size: 0.82rem;
-      color: var(--accent-lt);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 2.4rem;
+      font-size: 0.82rem; color: var(--accent-lt);
+      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 2.4rem;
     }
-
-    .hero-nav-links {
-      display: flex;
-      gap: 1.4rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
+    .hero-nav-links { display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; }
     .hero-nav-links a {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.65);
-      border-bottom: 1px solid rgba(168, 197, 160, 0.4);
-      padding-bottom: 2px;
-      transition: color 0.15s, border-color 0.15s;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      color: rgba(255,255,255,0.65); border-bottom: 1px solid rgba(168,197,160,0.4);
+      padding-bottom: 2px; transition: color 0.15s, border-color 0.15s;
     }
-
     .hero-nav-links a:hover { color: var(--white); border-color: var(--accent-lt); text-decoration: none; }
-
     .hero-scroll {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      color: rgba(168, 197, 160, 0.5);
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.4rem;
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      color: rgba(168,197,160,0.5); font-size: 0.7rem; letter-spacing: 0.1em;
+      text-transform: uppercase; display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
       animation: bounce 2.6s ease-in-out infinite;
     }
-
     .hero-scroll svg { width: 18px; height: 18px; }
-
     @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50%       { transform: translateX(-50%) translateY(6px); }
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(6px); }
     }
-
     @media (prefers-reduced-motion: reduce) { .hero-scroll { animation: none; } }
 
-    /* ── SHARED SECTION ───────────────────────────────────────────── */
-    .section {
-      padding: 5rem clamp(1.5rem, 8vw, 8rem);
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    .section-alt {
-      background: var(--cream);
-      max-width: 100%;
-      padding: 0;
-    }
-
+    /* ── SECTIONS ── */
+    .section { padding: 5rem clamp(1.5rem, 8vw, 8rem); max-width: 960px; margin: 0 auto; }
+    .section-alt { background: var(--cream); }
     .section h2 {
       font-family: 'Source Serif 4', Georgia, serif;
-      font-size: 1.85rem;
-      font-weight: 400;
-      color: var(--ink);
-      margin-bottom: 1.6rem;
-      padding-bottom: 0.6rem;
+      font-size: 1.85rem; font-weight: 400; color: var(--ink);
+      margin-bottom: 1.6rem; padding-bottom: 0.6rem;
       border-bottom: 2px solid var(--ink);
     }
 
-    /* ── ABOUT ────────────────────────────────────────────────────── */
+    /* ── ABOUT ── */
+    /* borrowed from Min: photo + chip links side-by-side */
     #about .about-grid {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 3rem;
-      align-items: start;
+      display: grid; grid-template-columns: 190px 1fr; gap: 3rem; align-items: start;
     }
-
+    .avatar-box { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
     .avatar-placeholder {
-      width: 200px;
-      height: 200px;
-      border-radius: 4px;
+      width: 190px; height: 190px; border-radius: 4px;
       background: linear-gradient(160deg, var(--accent) 0%, var(--accent-mid) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,0.85);
-      font-family: 'Source Serif 4', serif;
-      font-size: 3rem;
-      font-weight: 400;
-      flex-shrink: 0;
-      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.85); font-family: 'Source Serif 4', serif;
+      font-size: 3rem; font-weight: 400; border: 1px solid var(--border);
     }
-
-    .about-text p {
-      font-size: 1rem;
-      color: var(--ink-2);
-      margin-bottom: 1rem;
-      line-height: 1.78;
+    /* chip links below the avatar — from Min's style */
+    .about-chips { display: flex; flex-direction: column; gap: 0.4rem; width: 190px; }
+    .about-chips a {
+      display: block; text-align: center;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid var(--accent-lt);
+      padding: 0.32rem 0; border-radius: 2px; transition: all 0.15s;
     }
+    .about-chips a:hover { background: var(--accent); color: var(--white); border-color: var(--accent); text-decoration: none; }
+    .about-text p { font-size: 1rem; color: var(--ink-2); margin-bottom: 1rem; line-height: 1.78; }
 
-    .about-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      margin-top: 1.5rem;
-    }
-
-    .about-links a {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--accent);
-      border: 1px solid var(--accent-lt);
-      padding: 0.3rem 0.8rem;
-      border-radius: 2px;
-      transition: all 0.15s;
-    }
-
-    .about-links a:hover { background: var(--accent); color: var(--white); border-color: var(--accent); text-decoration: none; }
-
-    /* ── RESEARCH ─────────────────────────────────────────────────── */
+    /* ── RESEARCH ── */
     #research .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1.5rem;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem;
     }
-
     .project-card {
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      overflow: hidden;
-      background: var(--white);
-      transition: box-shadow 0.2s, border-color 0.2s;
+      border: 1px solid var(--border); border-radius: 3px; overflow: hidden;
+      background: var(--white); transition: box-shadow 0.2s, border-color 0.2s;
     }
-
-    .project-card:hover {
-      box-shadow: 0 4px 24px rgba(26, 42, 26, 0.10);
-      border-color: var(--accent-mid);
-    }
-
+    .project-card:hover { box-shadow: 0 4px 24px rgba(26,42,26,0.10); border-color: var(--accent-mid); }
     .card-img-placeholder {
-      width: 100%;
-      height: 130px;
+      width: 100%; height: 130px;
       background: linear-gradient(135deg, var(--ink) 0%, var(--accent) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
     }
-
-    .card-img-placeholder svg {
-      width: 36px; height: 36px;
-      opacity: 0.35;
-      color: var(--cream);
-    }
-
+    .card-img-placeholder svg { width: 36px; height: 36px; opacity: 0.35; color: var(--cream); }
     .card-body { padding: 1.25rem; }
-
+    /* borrowed from Min: field label eyebrow above card title */
+    .card-field {
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent-mid); margin-bottom: 0.4rem;
+    }
     .card-body h3 {
-      font-family: 'Source Serif 4', serif;
-      font-size: 1.05rem;
-      font-weight: 400;
-      color: var(--ink);
-      margin-bottom: 0.5rem;
-      line-height: 1.35;
+      font-family: 'Source Serif 4', serif; font-size: 1.05rem; font-weight: 400;
+      color: var(--ink); margin-bottom: 0.5rem; line-height: 1.35;
     }
+    .card-body p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
 
-    .card-body p {
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-
-    /* ── PUBLICATIONS ──────────────────────────────────────────────── */
+    /* ── PUBLICATIONS ── */
     #publications .pub-list { list-style: none; }
-
     .pub-item {
-      padding: 1.2rem 0;
-      border-bottom: 1px solid var(--border-lt);
-      display: grid;
-      grid-template-columns: 3.5rem 1fr;
-      gap: 1rem;
-      align-items: start;
+      padding: 1.2rem 0; border-bottom: 1px solid var(--border-lt);
+      display: grid; grid-template-columns: 3.5rem 1fr auto; gap: 1rem; align-items: start;
     }
-
-    .pub-year {
-      font-size: 0.77rem;
-      font-weight: 600;
-      color: var(--light);
-      padding-top: 0.15rem;
-      font-variant-numeric: tabular-nums;
+    .pub-year { font-size: 0.77rem; font-weight: 600; color: var(--light); padding-top: 0.15rem; font-variant-numeric: tabular-nums; }
+    .pub-title { font-size: 0.97rem; font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; line-height: 1.4; }
+    .pub-authors { font-size: 0.83rem; color: var(--muted); margin-bottom: 0.15rem; }
+    .pub-journal { font-size: 0.83rem; font-style: italic; color: var(--accent); }
+    /* borrowed from Min: status badges on each publication */
+    .pub-status {
+      display: inline-flex; align-items: center;
+      font-size: 0.63rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+      padding: 0.18rem 0.55rem; border-radius: 2px; border: 1px solid; white-space: nowrap;
+      margin-top: 0.1rem; align-self: start;
     }
+    .pub-status.published   { color: var(--accent);  border-color: var(--accent-lt);  background: #f0f4ec; }
+    .pub-status.in-progress { color: #7a6b2e;         border-color: #d4c87a;            background: #faf7e8; }
+    .pub-status.review      { color: #5a6a9e;         border-color: #b0bce0;            background: #f0f2fb; }
 
-    .pub-title {
-      font-size: 0.97rem;
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 0.2rem;
-      line-height: 1.4;
-    }
+    .scholar-link { display: inline-block; margin-top: 2rem; font-size: 0.88rem; font-weight: 600; }
 
-    .pub-authors {
-      font-size: 0.83rem;
-      color: var(--muted);
-      margin-bottom: 0.15rem;
-    }
-
-    .pub-journal {
-      font-size: 0.83rem;
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .pub-badge {
-      display: inline-block;
-      background: #f0f4ec;
-      color: var(--accent);
-      font-size: 0.63rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      padding: 0.1rem 0.45rem;
-      border-radius: 2px;
-      margin-left: 0.4rem;
-      vertical-align: middle;
-      border: 1px solid var(--accent-lt);
-    }
-
-    .scholar-link {
-      display: inline-block;
-      margin-top: 2rem;
-      font-size: 0.88rem;
-      font-weight: 600;
-    }
-
-    /* ── NEWS ──────────────────────────────────────────────────────── */
+    /* ── NEWS ── */
     #news .year-block { margin-bottom: 2.2rem; }
-
     #news .year-label {
-      font-family: 'Source Serif 4', serif;
-      font-size: 1.25rem;
-      font-weight: 400;
-      color: var(--ink);
-      margin-bottom: 0.9rem;
-      padding-bottom: 0.4rem;
-      border-bottom: 1px solid var(--border);
+      font-family: 'Source Serif 4', serif; font-size: 1.25rem; font-weight: 400;
+      color: var(--ink); margin-bottom: 0.9rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border);
     }
+    .news-item { display: grid; grid-template-columns: 4rem 1fr; gap: 1rem; padding: 0.55rem 0; align-items: start; }
+    .news-date { font-size: 0.77rem; color: var(--light); font-variant-numeric: tabular-nums; padding-top: 0.1rem; white-space: nowrap; }
+    .news-body { font-size: 0.92rem; color: var(--ink-2); line-height: 1.62; }
 
-    .news-item {
-      display: grid;
-      grid-template-columns: 4rem 1fr;
-      gap: 1rem;
-      padding: 0.55rem 0;
-      align-items: start;
-    }
-
-    .news-date {
-      font-size: 0.77rem;
-      color: var(--light);
-      font-variant-numeric: tabular-nums;
-      padding-top: 0.1rem;
-      white-space: nowrap;
-    }
-
-    .news-body {
-      font-size: 0.92rem;
-      color: var(--ink-2);
-      line-height: 1.62;
-    }
-
-    /* ── CONTACT ───────────────────────────────────────────────────── */
-    #contact p {
-      font-size: 1rem;
-      color: var(--ink-2);
-      max-width: 580px;
-      margin-bottom: 1.4rem;
-      line-height: 1.78;
-    }
-
-    .social-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
-      margin-top: 0.5rem;
-    }
-
+    /* ── CONTACT ── */
+    #contact p { font-size: 1rem; color: var(--ink-2); max-width: 580px; margin-bottom: 1.4rem; line-height: 1.78; }
+    .social-row { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 0.5rem; }
     .social-row a {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.84rem;
-      font-weight: 600;
-      color: var(--ink-2);
-      border: 1px solid var(--border);
-      padding: 0.4rem 0.9rem;
-      border-radius: 2px;
-      transition: all 0.15s;
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.84rem; font-weight: 600; color: var(--ink-2);
+      border: 1px solid var(--border); padding: 0.4rem 0.9rem; border-radius: 2px; transition: all 0.15s;
     }
-
     .social-row a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
     .social-row svg { width: 15px; height: 15px; }
 
-    /* ── FOOTER ────────────────────────────────────────────────────── */
+    /* ── FOOTER ── */
     footer {
-      text-align: center;
-      padding: 2.5rem;
-      border-top: 1px solid var(--border-lt);
-      background: var(--cream);
-      font-size: 0.78rem;
-      color: var(--light);
+      text-align: center; padding: 2.5rem;
+      border-top: 1px solid var(--border-lt); background: var(--cream);
+      font-size: 0.78rem; color: var(--light);
     }
 
-    /* ── RESPONSIVE ────────────────────────────────────────────────── */
+    /* ── RESPONSIVE ── */
     @media (max-width: 680px) {
       #nav { padding: 0 1.2rem; }
       #nav ul { display: none; }
       #about .about-grid { grid-template-columns: 1fr; }
-      .avatar-placeholder { width: 110px; height: 110px; font-size: 2rem; }
+      .avatar-box { flex-direction: row; align-items: center; }
+      .about-chips { flex-direction: row; flex-wrap: wrap; width: auto; }
+      .about-chips a { width: auto; padding: 0.32rem 0.8rem; }
+      .avatar-placeholder { width: 90px; height: 90px; font-size: 2rem; flex-shrink: 0; }
       .section { padding: 3.5rem 1.4rem; }
+      .pub-item { grid-template-columns: 3rem 1fr; }
+      .pub-status { display: none; }
     }
   </style>
 </head>
@@ -479,6 +243,7 @@
   </ul>
 </nav>
 
+<!-- HERO -->
 <section id="hero">
   <div id="hero-bg"></div>
   <div id="hero-content">
@@ -495,6 +260,7 @@
   </div>
   <div class="hero-scroll">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    scroll
   </div>
 </section>
 
@@ -502,7 +268,17 @@
 <section id="about" class="section">
   <h2>About</h2>
   <div class="about-grid">
-    <div class="avatar-placeholder">RR</div>
+    <!-- avatar + stacked chip links (Min's pattern) -->
+    <div class="avatar-box">
+      <div class="avatar-placeholder">RR</div>
+      <div class="about-chips">
+        <a href="mailto:romalramadhan@utexas.edu">Email</a>
+        <a href="https://github.com/romalfoy" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://scholar.google.com/citations?user=YegjddoAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://www.researchgate.net/profile/Romal-Ramadhan-2" target="_blank" rel="noopener">ResearchGate</a>
+        <a href="#">CV ↓</a>
+      </div>
+    </div>
     <div class="about-text">
       <p>
         I am a PhD candidate at the <a href="https://www.jsg.utexas.edu/">Jackson School of Geosciences</a>, University of Texas at Austin, working within the <a href="https://www.beg.utexas.edu/gccc">Gulf Coast Carbon Center (GCCC)</a> at the Bureau of Economic Geology, co-advised by Dr. Seyyed A. Hosseini and Dr. Larry W. Lake. I am currently a research intern at <strong>Los Alamos National Laboratory (LANL)</strong>, where my work focuses on techno-economic analysis of critical mineral recovery pathways.
@@ -513,13 +289,6 @@
       <p>
         Before UT Austin, I was a reservoir engineer at Chiang Mai University's CCS Research Centre in Thailand. I hold an M.Sc. in Petroleum Engineering from Chulalongkorn University (Thailand) and a B.Sc. from Universitas Islam Riau (Indonesia).
       </p>
-      <div class="about-links">
-        <a href="mailto:romalramadhan@utexas.edu">Email</a>
-        <a href="https://github.com/romalfoy">GitHub</a>
-        <a href="https://scholar.google.com">Google Scholar</a>
-        <a href="https://www.researchgate.net">ResearchGate</a>
-        <a href="#">CV</a>
-      </div>
     </div>
   </div>
 </section>
@@ -535,6 +304,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="4" rx="1"/><rect x="3" y="10" width="18" height="4" rx="1"/><rect x="3" y="17" width="18" height="4" rx="1"/></svg>
       </div>
       <div class="card-body">
+        <div class="card-field">Reservoir Simulation</div>
         <h3>Boundary Conditions for Truncated CCS Domains</h3>
         <p>Storage-conserving boundary-modifier workflows for reduced-domain reservoir models — improving pressure-footprint and AoR fidelity while enabling high-throughput uncertainty campaigns.</p>
       </div>
@@ -545,6 +315,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="11"/></svg>
       </div>
       <div class="card-body">
+        <div class="card-field">Geomechanics · Monitoring</div>
         <h3>Noordbergum Effect as a CCS Monitoring Diagnostic</h3>
         <p>Layered poroelastic framework to separate mechanical-coupling signatures from leakage-like pressure transients — sharpening sensor placement and operational decision triggers.</p>
       </div>
@@ -555,6 +326,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
       </div>
       <div class="card-body">
+        <div class="card-field">Fault Integrity · Risk</div>
         <h3>Fault Integrity Under Coupled Pressure–Stress Evolution</h3>
         <p>Fault-integrity screening coupling flow outputs with slip tendency and stress rotation across injection controls and fault-property uncertainty to define safe operating envelopes.</p>
       </div>
@@ -565,8 +337,9 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
       </div>
       <div class="card-body">
-        <h3>Techno-Economic Analysis of Critical Mineral Recovery — LANL</h3>
-        <p>Techno-economic assessment of critical mineral extraction and processing pathways, evaluating cost structures, supply chain feasibility, and policy implications to support domestic energy transition goals. Conducted as part of an internship at Los Alamos National Laboratory.</p>
+        <div class="card-field">Critical Minerals · LANL</div>
+        <h3>Techno-Economic Analysis of Critical Mineral Recovery</h3>
+        <p>Techno-economic assessment of critical mineral extraction pathways, evaluating cost structures, supply chain feasibility, and policy implications to support domestic energy transition goals.</p>
       </div>
     </div>
 
@@ -586,15 +359,17 @@
         <div class="pub-authors">Ramadhan, R. &amp; Hosseini, S. A.</div>
         <div class="pub-journal">Advances in Water Resources</div>
       </div>
+      <span class="pub-status published">Published</span>
     </li>
 
     <li class="pub-item">
       <span class="pub-year">2026</span>
       <div>
-        <div class="pub-title">Underused Geothermal Potential in Southeast Asia's Net-zero Transition </div>
+        <div class="pub-title">Underused Geothermal Potential in Southeast Asia's Net-zero Transition</div>
         <div class="pub-authors">Ramadhan, R. &amp; Mon, M. T.</div>
         <div class="pub-journal">Geoscience Frontiers</div>
       </div>
+      <span class="pub-status published">Published</span>
     </li>
 
     <li class="pub-item">
@@ -604,6 +379,7 @@
         <div class="pub-authors">Ramadhan, R., Abdurrahman, M., Arsad, A., et al.</div>
         <div class="pub-journal">Deep Resources Engineering</div>
       </div>
+      <span class="pub-status published">Published</span>
     </li>
 
     <li class="pub-item">
@@ -613,6 +389,7 @@
         <div class="pub-authors">Tangparitkul, S., Akamine, T., Ramadhan, R., et al.</div>
         <div class="pub-journal">Carbon Capture Science &amp; Technology</div>
       </div>
+      <span class="pub-status published">Published</span>
     </li>
 
     <li class="pub-item">
@@ -622,6 +399,7 @@
         <div class="pub-authors">Ramadhan, R., Tapanya, C., Thakheru, A., Leelasukseree, C., &amp; Tangparitkul, S.</div>
         <div class="pub-journal">Journal of Environmental Management</div>
       </div>
+      <span class="pub-status published">Published</span>
     </li>
 
     <li class="pub-item">
@@ -631,6 +409,7 @@
         <div class="pub-authors">Ramadhan, R., Mon, M. T., Tangparitkul, S., et al.</div>
         <div class="pub-journal">Energy Geosciences</div>
       </div>
+      <span class="pub-status published">Published</span>
     </li>
 
     <li class="pub-item">
@@ -640,6 +419,7 @@
         <div class="pub-authors">Ramadhan, R., Promneewat, K., Thanasaksukthawee, V., et al.</div>
         <div class="pub-journal">Science of the Total Environment</div>
       </div>
+      <span class="pub-status published">Published</span>
     </li>
 
     <li class="pub-item">
@@ -649,10 +429,11 @@
         <div class="pub-authors">Ramadhan, R., Abdurrahman, M., Bissen, R., Maneeintr, K.</div>
         <div class="pub-journal">Energy Reports</div>
       </div>
+      <span class="pub-status published">Published</span>
     </li>
 
   </ul>
-  <a class="scholar-link" href="https://scholar.google.com">Full list on Google Scholar →</a>
+  <a class="scholar-link" href="https://scholar.google.com/citations?user=YegjddoAAAAJ&hl=en">Full list on Google Scholar →</a>
 </section>
 
 <!-- NEWS -->
@@ -734,7 +515,7 @@
     I'm open to research collaborations, questions about CCS simulation and geomechanics, and conversations about the energy transition. Based at UT Austin and Los Alamos National Laboratory.
   </p>
   <p>
-    Reach me at <a href="mailto:romalramadhan@utexas.edu">romalramadhan@utexas.edu</a>.
+    Reach me at <a href="mailto:romalramadhan@utexas.edu">romalramadhan@utexas.edu</a>, or book a time directly below.
   </p>
   <div class="social-row">
     <a href="mailto:romalramadhan@utexas.edu">
@@ -745,14 +526,22 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
       GitHub
     </a>
-    <a href="https://scholar.google.com" target="_blank" rel="noopener">
+    <a href="https://scholar.google.com/citations?user=YegjddoAAAAJ&hl=en" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 0 1 .665 6.479A11.952 11.952 0 0 1 12 20.055a11.952 11.952 0 0 1-6.824-2.998 12.078 12.078 0 0 1 .665-6.479L12 14z"/></svg>
       Google Scholar
     </a>
-    <a href="https://www.researchgate.net" target="_blank" rel="noopener">
+    <a href="https://www.researchgate.net/profile/Romal-Ramadhan-2" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
       ResearchGate
     </a>
+  </div>
+
+  <div style="margin-top:2.5rem;">
+    <p style="font-size:0.8rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--light);margin-bottom:1rem;">Schedule a Meeting</p>
+    <div style="border:1px solid var(--border);border-radius:3px;overflow:hidden;">
+      <iframe src="https://mansurarief.github.io/calendar/" width="100%" height="540" frameborder="0" style="display:block;" title="Book an appointment with Romal"></iframe>
+    </div>
+    <p style="font-size:0.78rem;color:var(--light);margin-top:0.6rem;">Can't see the calendar? <a href="https://mansurarief.github.io/calendar/" target="_blank" rel="noopener">Open it directly →</a></p>
   </div>
 </section>
 
